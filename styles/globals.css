@@ -2,26 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.section {
+  @apply container mx-auto px-4 md:px-0 py-20;
+}
+
+* {
+  @apply scroll-smooth transition-all duration-300;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+.slick-dots li button:before {
+  font-size: 15px;
+  color: #000;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #ff0000;
 }
