@@ -109,12 +109,7 @@ async function handleGetProducts(req, res) {
     const totalProducts = await prisma.product.count({ where })
 
     res.status(200).json({
-      products,
-      pagination: {
-        currentPage: pageNum,
-        totalPages: Math.ceil(totalProducts / limitNum),
-        totalProducts
-      }
+      products
     })
   } catch (error) {
     console.error('Error fetching products:', error)

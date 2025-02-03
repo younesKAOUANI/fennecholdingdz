@@ -22,9 +22,9 @@ export default function Index() {
         },
       })
       const newData = await response.json()
-      setData(newData)
-      setFilteredData(newData) // Initially, no filter is applied.
-      console.log(newData)
+      setData(newData.products)
+      setFilteredData(newData.products) // Initially, no filter is applied.
+      console.log(newData, 'newData')
     } catch (error) {
       console.error('Error fetching products:', error)
     }
