@@ -14,6 +14,7 @@ export default async function handler(req, res) {
       });
       return res.status(200).json(products);
     } catch (error) {
+      console.error(error);
       return res.status(500).json({ error: 'Error retrieving products' });
     }
   } else if (req.method === 'POST') {
@@ -44,6 +45,7 @@ export default async function handler(req, res) {
       });
       return res.status(201).json(product);
     } catch (error) {
+      console.error(error);
       return res.status(500).json({ error: 'Error creating product' });
     }
   } else {

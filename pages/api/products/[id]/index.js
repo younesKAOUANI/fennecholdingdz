@@ -21,6 +21,7 @@ export default async function handler(req, res) {
       console.log(product);
       return res.status(200).json(product);
     } catch (error) {
+      console.error(error);
       return res.status(500).json({ error: 'Error retrieving product' });
     }
   } else if (req.method === 'PUT') {
@@ -52,6 +53,7 @@ export default async function handler(req, res) {
       });
       return res.status(200).json(updatedProduct);
     } catch (error) {
+      console.error(error);
       return res.status(500).json({ error: 'Error updating product' });
     }
   } else if (req.method === 'DELETE') {
@@ -60,6 +62,7 @@ export default async function handler(req, res) {
       await prisma.product.delete({ where: { id } });
       return res.status(204).end();
     } catch (error) {
+      console.error(error);
       return res.status(500).json({ error: 'Error deleting product' });
     }
   } else {

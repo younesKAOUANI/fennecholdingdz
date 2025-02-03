@@ -18,6 +18,7 @@ export default async function handler(req, res) {
       }
       return res.status(200).json(category);
     } catch (error) {
+      console.error(error);
       return res.status(500).json({ error: 'Error retrieving category' });
     }
   } else if (req.method === 'PUT') {
@@ -30,6 +31,7 @@ export default async function handler(req, res) {
       });
       return res.status(200).json(updatedCategory);
     } catch (error) {
+      console.error(error);
       return res.status(500).json({ error: 'Error updating category' });
     }
   } else if (req.method === 'DELETE') {
@@ -38,6 +40,7 @@ export default async function handler(req, res) {
       await prisma.category.delete({ where: { id } });
       return res.status(204).end();
     } catch (error) {
+      console.error(error);
       return res.status(500).json({ error: 'Error deleting category' });
     }
   } else {

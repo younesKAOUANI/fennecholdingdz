@@ -11,6 +11,7 @@ export default async function handler(req, res) {
       });
       return res.status(200).json(categories);
     } catch (error) {
+      console.error(error);
       return res.status(500).json({ error: 'Error retrieving categories' });
     }
   } else if (req.method === 'POST') {
