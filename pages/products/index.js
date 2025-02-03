@@ -127,7 +127,7 @@ const CategorySection = ({ category }) => {
             <div key={product.id} className="px-2">
               <div className="bg-white shadow-md rounded-lg overflow-hidden hover:scale-95 transition-transform">
                 <Image
-                  src={product.img[0]?.url}
+                  src={product?.img[0]}
                   alt={product.name}
                   width={400}
                   height={400}

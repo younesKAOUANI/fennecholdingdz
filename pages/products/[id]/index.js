@@ -78,7 +78,7 @@ export default function ProductPage() {
 
 /* 🔹 Product Gallery Component */
 function ProductGallery({ productData }) {
-  const [selectedImage, setSelectedImage] = useState(productData.img?.[0]?.url || "");
+  const [selectedImage, setSelectedImage] = useState(productData.img?.[0] || "");
 
   return (
     <div className="flex justify-center w-full gap-6 items-center h-[500px]">
@@ -100,13 +100,13 @@ function ProductGallery({ productData }) {
         {productData.img?.map((image, index) => (
           <button
             key={index}
-            onClick={() => setSelectedImage(image.url)}
+            onClick={() => setSelectedImage(image)}
             className={`border-2 rounded-md overflow-hidden w-24 h-24 ${
-              selectedImage === image.url ? "border-blue-500" : "border-gray-300"
+              selectedImage === image ? "border-blue-500" : "border-gray-300"
             }`}
           >
             <Image
-              src={image.url}
+              src={image  }
               alt={productData.name}
               width={200}
               height={200}
